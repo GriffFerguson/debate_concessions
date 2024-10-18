@@ -9,24 +9,27 @@ type OrderProps = {
 }
 
 export default function OrderList() {
-    const ws = new WebSocket("ws://api.stratfordtourney.griffsvoid.org/order_list");
-    
     let cards: Array<React.ReactNode> = [];
-
-    ws.onmessage = (msg) => {
-        let data = JSON.parse(msg.data) as Array<OrderProps>;
-        data.map((order) => {
-            cards.push(
-                <OrderCard
-                    name={order.name}
-                    school={order.school}
-                    id={order.id}
-                    items={order.items}
-                    table={order.table}
-                />
-            )
+    
+    setInterval(() => {
+        fetch("https://api.stratfordtourney.griffsvoid.org/order_list")
+        .then((res) => {
+            return res.json();
         })
-    }
+        .then((data) => {
+            data.map((order: OrderProps) => {
+                cards.push(
+                    <OrderCard
+                        name={order.name}
+                        school={order.school}
+                        id={order.id}
+                        items={order.items}
+                        table={order.table}
+                    />
+                )
+            })
+        })
+    }, 10000)
 
     return (
         <div id="order-card-wrapper">

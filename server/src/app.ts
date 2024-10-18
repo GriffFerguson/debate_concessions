@@ -1,10 +1,9 @@
 import Express from "express";
 import BodyParser from "body-parser";
 import Stripe from "stripe";
-import ExpressWS from "express-ws"
 require("dotenv").config();
 
-const app = ExpressWS(Express()).app;
+const app = Express();
 const stripe = new Stripe(process.env.STRIPE_KEY!);
 
 app.use(BodyParser.text());
@@ -48,13 +47,9 @@ app.post("/order", async (req, res) => {
     res.end();
 })
 
-app.ws("/order_list", (ws, req) => {
-    let previouisOrderSet: Array<Order> = [];
-    setInterval(() => {
-        if (previouisOrderSet != active_orders) {
-            ws.send(JSON.stringify(active_orders));
-        }
-    },10000)
+app.get("/order_list", (req, res) => {
+    res.writeHead(200);
+    res.end(JSON.stringify(active_orders));
 })
 
 app.listen(4000);
