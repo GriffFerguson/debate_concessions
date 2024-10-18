@@ -20,7 +20,35 @@ export async function createSession(items:Array<string>) {
         ui_mode: "embedded",
         line_items: checkout_items,
         mode: "payment",
-        return_url: "http://localhost:3000/?success"
+        return_url: "http://localhost:3000/?success",
+
+        custom_fields: [
+            {
+                key: "name",
+                label: {
+                    type: "custom",
+                    custom: "Full name"
+                },
+                optional: false,
+                type: "text"
+            },{
+                key: "school",
+                label: {
+                    type: "custom",
+                    custom: "School"
+                },
+                optional: false,
+                type: "text"
+            }, {
+                key: "table",
+                label: {
+                    type: "custom",
+                    custom: "Table #"
+                },
+                optional: false,
+                type: "numeric"
+            }
+        ]
     })
 
     return {clientSecret: (await session).client_secret};

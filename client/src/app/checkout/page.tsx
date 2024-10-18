@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import StripeEmbed from "@/components/StripeEmbed";
 
-
 export default function Page() {
     const cookieStore = cookies();
     let cart;
