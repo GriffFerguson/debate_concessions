@@ -1,0 +1,33 @@
+.item-card {
+    margin: 2rem 0;
+    border: 3px solid black;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 55% 20% 25%;
+    align-items: center;
+}
+
+.item-card .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.item-card button {
+    background-color: var(--orange);
+    color: black;
+    border: none;
+    border-radius: 12px;
+    padding: 2ch;
+    transition: background-color 200ms;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.item-card button:hover {
+    background-color: rgb(255, 189, 89);
+    cursor: pointer;
+}
+
+.item-card button[disabled] {
+    background-color: rgb(255, 189, 89);
+}

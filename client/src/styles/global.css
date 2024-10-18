@@ -1,0 +1,31 @@
+body, html, :root {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+
+    --orange: rgb(255, 102, 0);
+    --white-orange: rgb(230, 204, 181);
+    background-color: var(--white-orange);
+}
+
+h1 {
+    font-family: "Lacquer";
+    font-weight: bold;
+    font-size: 3rem;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Lacquer";
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+main {
+    margin: 0 30vw;
+}
+
+@font-face {
+    font-family: "Lacquer";
+    src: url(../assets/Lacquer/Lacquer-Regular.ttf);
+}
