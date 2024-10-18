@@ -14,8 +14,6 @@ export async function createSession(items:Array<string>) {
         })
     }
 
-    console.log(checkout_items);
-
     const session = stripe.checkout.sessions.create({
         ui_mode: "embedded",
         line_items: checkout_items,
