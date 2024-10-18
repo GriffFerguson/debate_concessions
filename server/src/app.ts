@@ -48,7 +48,7 @@ app.post("/order", async (req, res) => {
     res.end();
 })
 
-app.ws("/ordered_list", (ws, req) => {
+app.ws("/order_list", (ws, req) => {
     let previouisOrderSet: Array<Order> = [];
     setInterval(() => {
         if (previouisOrderSet != active_orders) {

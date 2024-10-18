@@ -9,7 +9,7 @@ type OrderProps = {
 }
 
 export default function OrderList() {
-    const ws = new WebSocket("wss://api.stratfordtourney.griffsvoid.org/order_list");
+    const ws = new WebSocket("ws://api.stratfordtourney.griffsvoid.org/order_list");
     
     let cards: Array<React.ReactNode> = [];
 
