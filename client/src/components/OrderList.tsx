@@ -17,6 +17,7 @@ export default function OrderList() {
             return res.json();
         })
         .then((data) => {
+            console.log(data);
             data.map((order: OrderProps) => {
                 cards.push(
                     <OrderCard

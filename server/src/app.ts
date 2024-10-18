@@ -1,6 +1,7 @@
 import Express from "express";
 import BodyParser from "body-parser";
 import Stripe from "stripe";
+import cors from "cors";
 require("dotenv").config();
 
 const app = Express();
@@ -8,6 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_KEY!);
 
 app.use(BodyParser.text());
 app.use(BodyParser.json());
+app.use(cors());
 
 type Order = {
     name: string,
